@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Instagram-style Login</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; background:#f3f3f3; color:#111; }
+
+    .login-body { display:flex; justify-content:center; align-items:center; min-height:100vh; }
+    .login-form { width:100%; max-width:420px; padding:20px; }
+
+    .insta-login-form {
+      width:100%; padding:36px; border:1px solid #dcdcdc; background:#fff;
+      margin:40px auto 20px; border-radius:6px; box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      display:flex; flex-direction:column; gap:12px;
+    }
+
+    /* Logo (faqat rasm) */
+    .insta-login-form .logo {
+      display:flex; justify-content:center; align-items:center; margin-bottom:20px;
+    }
+    .insta-login-form .logo img {
+      width: 170px;
+      height: auto;
+    }
+
+    .input-group { position:relative; }
+    .input-group input {
+      height:44px; width:100%; border:1px solid #dcdcdc;
+      padding:0 38px 0 12px; border-radius:4px; background:#fafafa; outline:none; font-size:14px;
+    }
+    .input-group input:focus { border-color:#999; background:#fff; }
+
+    .toggle-password {
+      position:absolute; top:50%; right:10px; transform:translateY(-50%);
+      cursor:pointer; font-size:16px; color:#555;
+    }
+
+    .login-button {
+      width:100%; padding:10px 12px; border-radius:8px; font-size:15px; font-weight:700;
+      border:0; background:rgba(18,154,255,0.9); color:#fff; cursor:pointer; margin-top:6px;
+    }
+
+    .or { text-align:center; color:#777; font-weight:700; position:relative; margin:4px 0 6px; }
+    .or::before, .or::after {
+      content:""; position:absolute; top:50%; width:38%; height:1px; background:#d4d4d4;
+    }
+    .or::before { left:0; transform:translateY(-50%); }
+    .or::after  { right:0; transform:translateY(-50%); }
+
+    .facebook-login { display:flex; justify-content:center; align-items:center; gap:8px; color:#385185; font-weight:700; }
+    .facebook-login img { width:18px; height:auto; }
+    .facebook-login a { text-decoration:none; color:inherit; }
+
+    .forgot-password { display:block; text-align:center; color:#00376b; margin-top:6px; text-decoration:none; font-size:13px; }
+
+    .new-account { border:1px solid #dcdcdc; padding:16px; text-align:center; background:#fff; border-radius:6px; margin-bottom:12px; }
+    .new-account a { color:#3897f0; text-decoration:none; font-weight:700; }
+
+    .get-app-text { text-align:center; margin-top:10px; color:#333; }
+    .platforms { display:flex; justify-content:center; gap:14px; margin-top:10px; }
+    .platforms img { width:130px; height:auto; }
+
+    footer { margin-top:24px; text-align:center; padding-bottom:26px; }
+    footer ul { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; list-style:none; padding:0; margin-bottom:8px; }
+    footer ul li a { text-decoration:none; color:#777; font-size:13px; }
+    footer p { color:#777; font-size:13px; margin:0; }
+  </style>
+</head>
+<body>
+  <div class="login-body">
+    <main class="login-form">
+      <form class="insta-login-form" method="POST">
+        <div class="logo">
+          <img src="https://i.imgur.com/zqpwkLQ.png" alt="Instagram">
+        </div>
+
+        <div class="input-group">
+          <input type="text" name="username" placeholder="Phone number, username or email" required>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword()">👁</span>
+        </div>
+
+        <button type="submit" class="login-button">Log In</button>
+
+        <div class="or">OR</div>
+
+        <div class="facebook-login">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="fb">
+          <a href="#">Login with Facebook</a>
+        </div>
+
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </form>
+
+      <div class="new-account">
+        Don't have an account? <a href="#">Sign up</a>
+      </div>
+
+      <p class="get-app-text">Get the app</p>
+
+      <div class="platforms">
+        <img src="https://www.pngmart.com/files/10/Google-Play-PNG-Image.png" alt="google-play">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Microsoft_Store.svg" alt="microsoft">
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="#">Meta</a></li><li><a href="#">About</a></li><li><a href="#">Blog</a></li>
+      <li><a href="#">Jobs</a></li><li><a href="#">Help</a></li><li><a href="#">API</a></li>
+      <li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Instagram Lite</a></li>
+      <li><a href="#">Threads</a></li><li><a href="#">Contact Upload & Non-Users</a></li><li><a href="#">Meta Verified</a></li>
+    </ul>
+    <p>© 2023 Instagram from Meta</p>
+  </footer>
+
+  <script>
+    function togglePassword() {
+      const passInput = document.getElementById("password");
+      passInput.type = passInput.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
